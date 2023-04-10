@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+
+body {
+    color: #ACBAE1;
+    margin:0;
+    font-family: 'Noto Sans', sans-serif;
+ }
+
+ body * {
+   box-sizing:border-box ;
+ }
+
+ .main-login{
+    width:100vw;
+    height:100vh;
+    background: #201b2c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ }
+ 
+/* cards */
+
+ .card-login{
+    width: 40%;
+    margin: 2%;
+    padding:30px 40px ;
+    background:#201b2c;
+    border-radius:20px;
+    box-shadow:0px 10px 40px #00000056;
+   
+    
+ }
+
+ .card-login > h1 {
+     color: #ACBAE1;
+     font-weight:800;
+     margin:50%;
+ }
+
+ /* textos */
+
+ .textfield{
+   width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    margin: 10px 0px;
+ }
+
+ .textfield > input{
+   width: 100%;
+   border:none;
+   border-radius: 10px;
+   padding: 15px;
+   background: #514869;
+   color: #828CAD;
+   font-size: 12pt;
+   box-shadow: 0px 10px 40px #00000056;
+   outline:none;
+   box-sizing:border-box   ;
+ }
+
+ .textfield > label{
+   color: #828CAD;
+   margin-bottom: 10px;
+
+ }
+
+ .textfield > input::placeholder{
+   color:#828CAD;
+   
+ } 
+
+/* botão de login */
+
+.btn-login{
+   width:20%;
+   padding:12px 7px;
+   margin:25px;
+   border-radius: 10px;
+   border:none;
+   text-transform: uppercase;
+   font-weight:500;
+   color: #2b134b;
+   background: #6C63FF;
+   cursor:pointer;
+   box-shadow: 0px 10px 40px -12px #584ff5;
+}
+
+.btn-login:hover {
+   background: #584ff5;
+}
+ 
+/* otimização de dispositivo */
+
+ @media only screen and (max-width:950px){
+ .card-login{
+   width: 85%
+  }
+ }
+
+ @media only screen and (max-width:600px){
+   .main-login{
+      flex-direction: column;
+   }
+   .left-login > h1{
+      display:none ;
+   }
+
+   .left-login{
+      width: 100%;
+      height: auto;
+
+   }
+   .right-login{
+      width:100%;
+      height: auto;
+   }
+   .left-login-image{
+      width:50vw;
+   }
+
+   .card-login{
+      width: 90%;
+   }
+}
+
+
+.titulo{
+   text-align: center;
+   color: #ACBAE1;
+}

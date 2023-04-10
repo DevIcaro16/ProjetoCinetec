@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tela de cadastro</title>
+    <link rel="stylesheet" href="cd.css">
+</head>
+<body>
+     
+     <div class="container">
+
+        <div class="header">
+            <h2>Criar conta</h2>
+        </div>
+
+        
+
+        <div class="form">
+            
+            <span id="msgAlerta"></span>
+
+        <form action="cadastro.php"  method="POST" id="cinetecForm">
+
+            <div class="form-control ">
+                <label for="username">nome</label>
+                <input type="text" required name="username" id="username" placeholder="seu nome">
+                <i><img class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img class="img-success" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+
+            <div class="form-control ">
+                <label for="email">Email</label>
+                <input type="imail" required name="email" id="email" placeholder="seu email">
+                <i><img class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img class="img-sucess" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+            <div class="form-control ">
+                <label for="CPF">CPF</label>
+                <input type="text" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="11" name="CPF" id="CPF" placeholder="seu CPF">
+                <i><img class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img class="img-sucess" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+            <div class="form-control ">
+                <label for="telefone">telefone</label>
+                <input type="text" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="11" name="telefone" id="telefone" placeholder="seu Telefone">
+                <i><img class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img class="img-sucess" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">senha</label>
+                <input type="password"  required name="password" id="password" placeholder="Crie sua Senha">
+                <i><img  class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img  class="img-sucess" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="passwordtwo">Confirme sua senha</label>
+                <input type="password" required name="passwordtwo" id="passwordtwo" placeholder="Senha Novamente" >
+                <i><img  class="img-error" src="./image/error-icon.svg" alt=""></i>
+                <i><img  class="img-success" src="./image/success-icon.svg" alt=""></i>
+            
+                <small>error message</small>
+            </div>
+
+
+         
+
+
+            <button  class="submit">Enviar</input><br>
+            
+
+                <script src="cd.js"></script>
+
+
+        </form>
+        </div>
+        <a href="../page/index.html" class="voltar-btn" >Voltar</a>
+     </div>
+     
+</body>
+</html>
