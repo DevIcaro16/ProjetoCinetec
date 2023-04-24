@@ -148,3 +148,7 @@ header .navegation li a{
 .boxImg .img4{
     transform: rotate(-15deg)
 }
+
+.navbar {
+    background-color: #321bbc;
+}

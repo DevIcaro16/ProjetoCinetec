@@ -16,79 +16,72 @@ var passwordTwo = document.getElementById("passwordtwo");
 
 
 
-
-
-
-
-
 cinetecForm.addEventListener("submit", (e) => {
   
-var usernameValue = document.querySelector("#username").value;
+
+  var usernameValue = document.querySelector("#username").value;
   
-var emailValue = document.querySelector("#email").value;
-
-var CPFValue = document.querySelector("#CPF").value;
-
-var telefoneValue = document.querySelector("#telefone").value;
-
-var passwordValue = document.querySelector("#password").value;
-
-var passwordtwoValue = document.querySelector("#passwordtwo").value;
-
-
-
-
-  if(usernameValue === ""){
-
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo Nome! </p>"
-    return; 
-  }
-
-
-  if(emailValue === ""){
+  var emailValue = document.querySelector("#email").value;
   
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo Email! </p>"
-    return; 
-  }
-  if(CPFValue === ""){
+  var CPFValue = document.querySelector("#CPF").value;
   
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo CPF! </p>"
-    return; 
-  }
-  if(telefoneValue === ""){
+  var telefoneValue = document.querySelector("#telefone").value;
   
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo Telefone! </p>"
-    return; 
-  }
-  if(passwordValue === ""){
+  var passwordValue = document.querySelector("#password").value;
   
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo Senha! </p>"
-    return; 
-  }
-  if(passwordtwoValue === ""){
-  
-    e.preventDefault();
-    document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: é necessário preencher o campo Senha Novamente! </p>"
-    return; 
-  }
+  var passwordtwoValue = document.querySelector("#passwordtwo").value;
+
   
   
-    if(passwordValue != passwordtwoValue){
-  
-      e.preventDefault();
-      document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'> As senhas não são iguais! </p>"
+   
   
     }
-  
- 
 
+    function validarCPF(cpf){
+      cpf = cpf.replace(/\D/g, '');
+      if(cpf.toString().length != 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+      var result = true;
+      
+      [9,10].forEach(function(j){
+          var soma = 0, r;
+          cpf.split(/(?=)/).splice(0,j).forEach(function(e, i){
+              soma += parseInt(e) * ((j+2)-(i+1));
+          });
+          r = soma % 11;
+          r = (r <2)?0:11-r;
+          if(r != cpf.substring(j, j+1)) 
+          document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'>Erro: O CPF é inválido! </p>";
+      });
+
+      console.log(cpf,CPF(cpf));
+
+      if(result == true){
+
+            document.getElementById("msgAlerta").innerHTML = " <div class='alert alert-success' role='alert'> A simple success alert—check it out!</div>";           
+
+      }else{
+
+            document.getElementById("msgAlerta").innerHTML = "<div class='alert alert-danger' role='alert'>A simple danger alert—check it out!</div>";
+
+      }
+
+      if(passwordValue != passwordtwoValue){
+  
+        e.preventDefault();
+        document.getElementById("msgAlerta").innerHTML = "<p style ='color: #f00;'> As senhas não são iguais! </p>"
+
+      return result;
+      
+      
+
+  }
+  
+
+    
+    validarCPF(CPFValue);
 
 });
+
 
 
 

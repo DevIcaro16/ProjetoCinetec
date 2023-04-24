@@ -13,12 +13,16 @@ try {
 
 }
 
-$sql2 = "UPDATE filmes SET num_disponibilidade = '' WHERE nome_titulo = '' ";
-$result2 = $connect->query($sql2);
+$query_all_usuario = "SELECT * FROM usuario";
+$result_all_usuario = $connect->query($query_all_usuario);
+$rows_all_usuario = $result_all_usuario-> fetchAll() ;
+
+$query_compra = "UPDATE filmes SET num_disponibilidade = '' WHERE nome_titulo = '' ";
+$result2 = $connect->query($query_compra);
 $precos = $result2->fetchAll();
 
-$sql = "SELECT * FROM filmes " ;
-$result = $connect->query($sql);
+$query_selecionar_filmes = "SELECT * FROM filmes " ;
+$result = $connect->query($query_selecionar_filmes);
 $inforFilmes = $result->fetchAll();
 
 ?>

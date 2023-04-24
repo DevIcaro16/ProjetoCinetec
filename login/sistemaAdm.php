@@ -8,8 +8,11 @@ if((!isset($_SESSION['email_usuario']) == true ) and (!isset($_SESSION['senha_us
 
 }
 
-    $logado = $_SESSION['nome_usuario'] ;
-    $email = $_SESSION['email_usuario'];
+    include_once("../conexao/conexao.php");
+
+    $logado = $_SESSION['nome_adm'] ;
+    $email = $_SESSION['email_adm'];
+
 
 ?>
 
@@ -19,23 +22,19 @@ if((!isset($_SESSION['email_usuario']) == true ) and (!isset($_SESSION['senha_us
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../page/style.css">
-    <title>CineTec</title>
+    <title>Sistema: </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <style>
-        .navbar {
-            background-color: Black;
-        }
-    </style>
 </head>
 <body>
+    <style>
 
+        #h1{
+            color: green;
+        }
 
-    <section>
-        <header>
-            
-            <nav class="navbar fixed-top">
+    </style>
+
+<nav class="navbar fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">CineTec</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -76,21 +75,33 @@ if((!isset($_SESSION['email_usuario']) == true ) and (!isset($_SESSION['senha_us
                     </div>
                 </div>
             </nav>
-        </header>
-        <div class="content">
-            <div class="text">
-                <h2> <br><span>CINETEC</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores autem eaque voluptas accusamus, illum, quisquam distinctio adipisci iusto earum corrupti soluta tenetur voluptatibus aperiam saepe vitae architecto eligendi repellendus delectus?</p>
-                <a href="#">FILMES EM DESTAQUE</a>
-            </div>
-        </div>
+    <h1 id="h1" > Bem Vindo Administrador <?=  $logado ; ?> ! </h1>
+    <h2>Visualize os Usuários Cadastrados : </h2>
+
+    <?php foreach($rows_all_usuario as $row_all_usuario):  ?>
+
+    
+    
+    <div class="table-usuarios">
+
+        <ol>
+
+            <ul scope="row"><h3>Nome : <?= $row_all_usuario["nome_usuario"] ?> </h3></ul>
+            <ul scope="row"><h3>Email : <?= $row_all_usuario["email_usuario"] ?></h3></ul>
+            <ul scope="row"><h3>Telefone: <?= $row_all_usuario["telefone_usuario"] ?> </h3></ul>
+            <ul scope="row"><h3>CPF : <?= $row_all_usuario["cpf_usuario"] ?></h3></ul>
+            <ul scope="row"><h3>Senha Cadastrada : <?= $row_all_usuario["senha_usuario"] ?></h3></ul>
       
-    </section>
+            <hr>
 
+        </ol>
+    
+    <?php endforeach ?>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
 </body>
 </html>
 
